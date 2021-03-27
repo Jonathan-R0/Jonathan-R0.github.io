@@ -2,64 +2,54 @@
 <h1 class="code-line" data-line-start=0 data-line-end=1><a id="Taller_de_Programacin_Resumen_para_el_Finalhttpsjonathanr0githubiotallerhtml_0"></a><a href="https://jonathan-r0.github.io/taller.html">Taller de Programación, Resumen para el Final.</a></h1>
 <h2 class="code-line" data-line-start=1 data-line-end=2><a id="Ctedra_Veiga_2C_2020_1"></a>Cátedra Veiga, 2C 2020.</h2>
 <p class="has-line-data" data-line-start="3" data-line-end="4">Este resumen junta información relevante dictada durante las clases para la preparación del final. Ante algún error que se pueda detectar en este archivo, por favor mencionarlo.</p>
-<h1 class="code-line" data-line-start=5 data-line-end=6><a id="Tabla_de_Contenidos_5"></a>Tabla de Contenidos</h1>
+<h1 class="code-line" data-line-start=5 data-line-end=6><a id="Clase_1_5"></a>Clase 1</h1>
+<h2 class="code-line" data-line-start=7 data-line-end=8><a id="Memoria_7"></a>Memoria</h2>
 <ul>
-<li class="has-line-data" data-line-start="7" data-line-end="8"><a href="#clase-1">Clase 1</a></li>
-<li class="has-line-data" data-line-start="8" data-line-end="9"><a href="#clase-2">Clase 2</a></li>
-<li class="has-line-data" data-line-start="9" data-line-end="10"><a href="#clase-3">Clase 3</a></li>
-<li class="has-line-data" data-line-start="10" data-line-end="11"><a href="#clase-4">Clase 4</a></li>
-<li class="has-line-data" data-line-start="11" data-line-end="12"><a href="#clase-5">Clase 5</a></li>
-<li class="has-line-data" data-line-start="12" data-line-end="13"><a href="#clase-6">Clase 6</a></li>
-<li class="has-line-data" data-line-start="13" data-line-end="14"><a href="#clase-7">Clase 7</a></li>
-</ul>
-<h1 class="code-line" data-line-start=16 data-line-end=17><a id="Clase_1_16"></a>Clase 1</h1>
-<h2 class="code-line" data-line-start=18 data-line-end=19><a id="Memoria_18"></a>Memoria</h2>
-<ul>
-<li class="has-line-data" data-line-start="20" data-line-end="22">
-<p class="has-line-data" data-line-start="20" data-line-end="21">Llamamos <strong><em>alineación</em></strong> al hecho de que las variables siempre deben arrancar a estar en posiciones de memoria que sean múltiplos del tamaño de las mismas. Esto se hace por una cuestión de eficiencia y por lo tanto hace que muchos arreglos de datos desperdicien a próposito bytes para mantener esta estructura.</p>
+<li class="has-line-data" data-line-start="9" data-line-end="11">
+<p class="has-line-data" data-line-start="9" data-line-end="10">Llamamos <strong><em>alineación</em></strong> al hecho de que las variables siempre deben arrancar a estar en posiciones de memoria que sean múltiplos del tamaño de las mismas. Esto se hace por una cuestión de eficiencia y por lo tanto hace que muchos arreglos de datos desperdicien a próposito bytes para mantener esta estructura.</p>
 </li>
-<li class="has-line-data" data-line-start="22" data-line-end="24">
-<p class="has-line-data" data-line-start="22" data-line-end="23">Aquellos pedazos de memoria que dejamos sin usar que nos ayuda a alinear la memoria se conoce como <strong><em>padding</em></strong>.</p>
+<li class="has-line-data" data-line-start="11" data-line-end="13">
+<p class="has-line-data" data-line-start="11" data-line-end="12">Aquellos pedazos de memoria que dejamos sin usar que nos ayuda a alinear la memoria se conoce como <strong><em>padding</em></strong>.</p>
 </li>
-<li class="has-line-data" data-line-start="24" data-line-end="26">
-<p class="has-line-data" data-line-start="24" data-line-end="25">Recordamos que el tamaño de los datos está definido por la ISA de la arquitectura que utiliza nuestro computador.</p>
+<li class="has-line-data" data-line-start="13" data-line-end="15">
+<p class="has-line-data" data-line-start="13" data-line-end="14">Recordamos que el tamaño de los datos está definido por la ISA de la arquitectura que utiliza nuestro computador.</p>
 </li>
 </ul>
-<h2 class="code-line" data-line-start=26 data-line-end=27><a id="Structs__Unions_26"></a>Structs &amp; Unions</h2>
-<p class="has-line-data" data-line-start="28" data-line-end="29">Un ejemplo donde vemos como se manifiesta el padding, es con los <strong><em>structs &amp; unions</em></strong>. Sea el siguiente ejemplo en una arquitectura x86 de 64b:</p>
-<pre><code class="has-line-data" data-line-start="31" data-line-end="38">struct S {
+<h2 class="code-line" data-line-start=15 data-line-end=16><a id="Structs__Unions_15"></a>Structs &amp; Unions</h2>
+<p class="has-line-data" data-line-start="17" data-line-end="18">Un ejemplo donde vemos como se manifiesta el padding, es con los <strong><em>structs &amp; unions</em></strong>. Sea el siguiente ejemplo en una arquitectura x86 de 64b:</p>
+<pre><code class="has-line-data" data-line-start="20" data-line-end="27">struct S {
     int a;         |A|A|A|A|
     char b;        |B| | | |
     int c;         |C|C|C|C| | | | |
     short d;       |D|D|D|D|D|D|D|D|
 };                
 </code></pre>
-<p class="has-line-data" data-line-start="39" data-line-end="40">Donde <code>a</code> ocupa los bytes 0,1,2 y 3 del mismo y luego <code>b</code> está en el byte 4 (siempre relativo al inicio de la estructura). Pero <code>c</code> no comienza en el byte 5, comienza en el 8, dejando tres bytes de padding pues necesita que el byte donde arranca sea un múltiplo de su tamaño (es decir 4). Por lo tanto antes de poner a <code>d</code> tenemos que dejar 4 bytes más de padding así puede arrancar en la dirección 16.</p>
-<p class="has-line-data" data-line-start="41" data-line-end="42">Esto es diferente con los unions donde el tamaño de la estructura general es el tamaño de su miembro más pesado y donde todos los datos viven en el mismo espacio de memoria.</p>
-<p class="has-line-data" data-line-start="43" data-line-end="44">Podemos agregar <code>__atribute__((packed));</code> antes de terminar de definir el struct para que esté no agregué padding al mismo.</p>
-<p class="has-line-data" data-line-start="45" data-line-end="46">Si tenemos:</p>
-<pre><code class="has-line-data" data-line-start="48" data-line-end="53">union U {
+<p class="has-line-data" data-line-start="28" data-line-end="29">Donde <code>a</code> ocupa los bytes 0,1,2 y 3 del mismo y luego <code>b</code> está en el byte 4 (siempre relativo al inicio de la estructura). Pero <code>c</code> no comienza en el byte 5, comienza en el 8, dejando tres bytes de padding pues necesita que el byte donde arranca sea un múltiplo de su tamaño (es decir 4). Por lo tanto antes de poner a <code>d</code> tenemos que dejar 4 bytes más de padding así puede arrancar en la dirección 16.</p>
+<p class="has-line-data" data-line-start="30" data-line-end="31">Esto es diferente con los unions donde el tamaño de la estructura general es el tamaño de su miembro más pesado y donde todos los datos viven en el mismo espacio de memoria.</p>
+<p class="has-line-data" data-line-start="32" data-line-end="33">Podemos agregar <code>__atribute__((packed));</code> antes de terminar de definir el struct para que esté no agregué padding al mismo.</p>
+<p class="has-line-data" data-line-start="34" data-line-end="35">Si tenemos:</p>
+<pre><code class="has-line-data" data-line-start="37" data-line-end="42">union U {
     long l;
     int* p;
 };
 </code></pre>
-<p class="has-line-data" data-line-start="54" data-line-end="55">La estructura general pesará 8 bytes pues si accedo a <code>l</code> estaré leyendo el número que luego <code>p</code> interpreta como una dirección de memoria.</p>
-<h2 class="code-line" data-line-start=56 data-line-end=57><a id="Ajuste_de_Endianness_56"></a>Ajuste de Endianness</h2>
-<p class="has-line-data" data-line-start="58" data-line-end="59">Para ajustar el endianness de nuestros datos cuando estos pasan por sockets por ejemplo, es con este conjunto de funciones:</p>
-<pre><code class="has-line-data" data-line-start="61" data-line-end="66">short int htons(short int);
+<p class="has-line-data" data-line-start="43" data-line-end="44">La estructura general pesará 8 bytes pues si accedo a <code>l</code> estaré leyendo el número que luego <code>p</code> interpreta como una dirección de memoria.</p>
+<h2 class="code-line" data-line-start=45 data-line-end=46><a id="Ajuste_de_Endianness_45"></a>Ajuste de Endianness</h2>
+<p class="has-line-data" data-line-start="47" data-line-end="48">Para ajustar el endianness de nuestros datos cuando estos pasan por sockets por ejemplo, es con este conjunto de funciones:</p>
+<pre><code class="has-line-data" data-line-start="50" data-line-end="55">short int htons(short int);
 short int ntohs(short int);
 int htonl(int);
 int ntohl(int);
 </code></pre>
-<p class="has-line-data" data-line-start="67" data-line-end="68">Siendo <code>hton</code> host-to-network, <code>ntoh</code> network-to-host y el último caracter indica si es un short o int el dato con el que trabaja.</p>
-<p class="has-line-data" data-line-start="69" data-line-end="70">Si recibo un dato debería pasarlo por <code>ntoh</code> y si lo mando <code>hton</code> para ajustar el endianness.</p>
-<h2 class="code-line" data-line-start=71 data-line-end=72><a id="Segmentos_de_Memoria_71"></a>Segmentos de Memoria</h2>
-<p class="has-line-data" data-line-start="73" data-line-end="74"><strong><em>Code Segment</em></strong>: De lectura y ejecución. Para código y constantes. No redefinible.</p>
-<p class="has-line-data" data-line-start="75" data-line-end="76"><strong><em>Data Segment</em></strong>: Variables creadas al inicio del programa y son válidas hasta que termina la ejecución del programa. De acceso global o local. No redefinible.</p>
-<p class="has-line-data" data-line-start="77" data-line-end="78"><strong><em>Stack</em></strong>: Variables creadas al inicio del scope en el que este existe. Los datos se destruten al salir de este.</p>
-<p class="has-line-data" data-line-start="79" data-line-end="80"><strong><em>Heap</em></strong>: Variables compartidas por todos los programas de la máquina.</p>
-<h2 class="code-line" data-line-start=81 data-line-end=82><a id="Lifetime_y_Scope_81"></a>Lifetime y Scope</h2>
-<pre><code class="has-line-data" data-line-start="84" data-line-end="100">int g = 1;         // Data segment, scope global.
+<p class="has-line-data" data-line-start="56" data-line-end="57">Siendo <code>hton</code> host-to-network, <code>ntoh</code> network-to-host y el último caracter indica si es un short o int el dato con el que trabaja.</p>
+<p class="has-line-data" data-line-start="58" data-line-end="59">Si recibo un dato debería pasarlo por <code>ntoh</code> y si lo mando <code>hton</code> para ajustar el endianness.</p>
+<h2 class="code-line" data-line-start=60 data-line-end=61><a id="Segmentos_de_Memoria_60"></a>Segmentos de Memoria</h2>
+<p class="has-line-data" data-line-start="62" data-line-end="63"><strong><em>Code Segment</em></strong>: De lectura y ejecución. Para código y constantes. No redefinible.</p>
+<p class="has-line-data" data-line-start="64" data-line-end="65"><strong><em>Data Segment</em></strong>: Variables creadas al inicio del programa y son válidas hasta que termina la ejecución del programa. De acceso global o local. No redefinible.</p>
+<p class="has-line-data" data-line-start="66" data-line-end="67"><strong><em>Stack</em></strong>: Variables creadas al inicio del scope en el que este existe. Los datos se destruten al salir de este.</p>
+<p class="has-line-data" data-line-start="68" data-line-end="69"><strong><em>Heap</em></strong>: Variables compartidas por todos los programas de la máquina.</p>
+<h2 class="code-line" data-line-start=70 data-line-end=71><a id="Lifetime_y_Scope_70"></a>Lifetime y Scope</h2>
+<pre><code class="has-line-data" data-line-start="73" data-line-end="89">int g = 1;         // Data segment, scope global.
 static int l = 2;  // Data segment, scope local.
 extern int e;      // No asigna memoria, simplemente es una definición. 
 
@@ -76,62 +66,281 @@ void foo() {
 
 </code></pre>
 <ul>
-<li class="has-line-data" data-line-start="101" data-line-end="102">Para utirlizar a <code>e</code>, el mismo tiene que en alguna parte del programa haber sido definido para no leer algo ni inicializado.</li>
-<li class="has-line-data" data-line-start="102" data-line-end="104">Los punteros a función apuntan al code segment.</li>
+<li class="has-line-data" data-line-start="90" data-line-end="91">Para utirlizar a <code>e</code>, el mismo tiene que en alguna parte del programa haber sido definido para no leer algo ni inicializado.</li>
+<li class="has-line-data" data-line-start="91" data-line-end="93">Los punteros a función apuntan al code segment.</li>
 </ul>
-<h1 class="code-line" data-line-start=104 data-line-end=105><a id="Compilacin_104"></a>Compilación</h1>
-<p class="has-line-data" data-line-start="106" data-line-end="107">Decimos que C/C++ son lenguajes portables pues estos pueden crear código ejecutable hacia cualquier tipo de arquitectura (siempre tendiendo en cuenta el tipo de compilador que parsea y genera el ejecutable).</p>
-<p class="has-line-data" data-line-start="108" data-line-end="109">El proceso de compilación tiene varias etapas:</p>
-<p class="has-line-data" data-line-start="110" data-line-end="111"><strong><em>Precompilación</em></strong>: Se realizan tareas relacionadas con el reemplazo de variables, búsqueda de código fuente y un parseo de texto general. Todo lo que tiene que ver con manejo de archivos, headers, etc se resuelve acá. Si compilamos en C, solo le llegarán <code>.c</code> a la etapa de compilación. Reemplaza en el código los defines correspondientes, en función de las reglas definidas por los rótulos dados (<code>include, ifndef, define, ifdef, endif, ...</code>).</p>
-<p class="has-line-data" data-line-start="112" data-line-end="113"><strong><em>Compilación</em></strong>: Verificación del código suministrado. Genera un código objeto. Los <code>.c</code> que reciben se transforman en <code>.o</code> &amp; <code>.lib</code>.</p>
-<p class="has-line-data" data-line-start="114" data-line-end="115"><strong><em>Link-Edición</em></strong>: Combina los distintos códigos objetos, librerías externas, resuelve problemas de referencias cruzadas y genera el ejecutable correspondiente a la plataforma en la que se realiza esto. Para generar un ejecutable más pequeño se puede realizar un <em>linkeo dinámico</em>. Esto consiste de linkear código objeto ya pregenerado que es usado por varios programas. Estas librerias dinámicas se encuentran una vez en la memoria del sistema y permite ahorrar memoria. Puede correr más rápido si este código ya está cacheado por otro programa que lo utilizó hace relativamente poco.</p>
-<h1 class="code-line" data-line-start=116 data-line-end=117><a id="Clase_2_116"></a>Clase 2</h1>
-<h2 class="code-line" data-line-start=118 data-line-end=119><a id="SocketshttpsrawgithubusercontentcomJonathanR0TallerDeProgramacionmasterTP19508common_socketc_118"></a><a href="https://raw.githubusercontent.com/Jonathan-R0/TallerDeProgramacion/master/TP1-9508/common_socket.c">Sockets</a></h2>
-<p class="has-line-data" data-line-start="120" data-line-end="121">Siempre que se mande un mensaje por red, al destinatario del mismo se lo apoda <code>host</code>. Todo mensaje necesita conocer la ip y puerto de quien va a recibirlo. Para modelar la ip existen los protocolos iPv4 (codifica la ip con 4 bytes) e iPv6 (codifica la ip con 16 bytes).</p>
-<p class="has-line-data" data-line-start="122" data-line-end="123">El server hace un bind de su socket a su ip local (resultado de getaddrinfo) y le podemos decir al socket que escuche a una cierta cantidad de conexiones entrantes, a través de <a href="https://man7.org/linux/man-pages/man2/listen.2.html"><code>listen</code></a> por el sistema operativo. A este socket le pueden llegar conexiones que puede aceptar o no, y hasta entonces bloqueará la ejecución del programa.</p>
-<p class="has-line-data" data-line-start="124" data-line-end="125">Del lado del cliente creamos un socket que utilizamos para conectarnos con el servidor utilizando <a href="https://man7.org/linux/man-pages/man2/connect.2.html"><code>connect</code></a> hacia la dirección dada (obtenida con el <a href="https://man7.org/linux/man-pages/man3/getaddrinfo.3.html"><code>getaddrinfo</code></a>). Se manda el mensaje de conexión y se acepta, estableciendo la misma.</p>
-<p class="has-line-data" data-line-start="126" data-line-end="127">El servidor crea un segundo socket asociado al puerto y es el que acepta conexiones. Necesito uno de estos sockets extras por cada cliente con el que trabajo. Si llegan más pedidos que espacios en la pila, estos se pierden.</p>
-<p class="has-line-data" data-line-start="128" data-line-end="129">Para cerrar un canal de comunicación, lectura y/o escritura, se utiliza el <a href="https://man7.org/linux/man-pages/man2/shutdown.2.html"><code>shutdown</code></a>.</p>
-<h3 class="code-line" data-line-start=130 data-line-end=131><a id="Protocolo_TPC_130"></a>Protocolo TPC</h3>
-<p class="has-line-data" data-line-start="132" data-line-end="133">Envia bytes, nunca streams. Además asegura que siempre llega la información sin bytes repetidos y respetando el orden de salida.</p>
-<p class="has-line-data" data-line-start="134" data-line-end="135">Para satisfacer el protocolo correctamente debemos utilizar sockets, los cuales están diferenciados por su file descriptor.</p>
-<h2 class="code-line" data-line-start=136 data-line-end=137><a id="Manejo_de_Archivos_136"></a>Manejo de Archivos</h2>
-<p class="has-line-data" data-line-start="138" data-line-end="139">Para manejar archivos en C podemos hacer principalmente dos cosas. Operamos con file descriptors o utilizamos la interfaz que nos provee el tipo FILE. En la materia usaremos el segundo.</p>
-<p class="has-line-data" data-line-start="140" data-line-end="141">Funciones importantes:</p>
+<h1 class="code-line" data-line-start=93 data-line-end=94><a id="Compilacin_93"></a>Compilación</h1>
+<p class="has-line-data" data-line-start="95" data-line-end="96">Decimos que C/C++ son lenguajes portables pues estos pueden crear código ejecutable hacia cualquier tipo de arquitectura (siempre tendiendo en cuenta el tipo de compilador que parsea y genera el ejecutable).</p>
+<p class="has-line-data" data-line-start="97" data-line-end="98">El proceso de compilación tiene varias etapas:</p>
+<p class="has-line-data" data-line-start="99" data-line-end="100"><strong><em>Precompilación</em></strong>: Se realizan tareas relacionadas con el reemplazo de variables, búsqueda de código fuente y un parseo de texto general. Todo lo que tiene que ver con manejo de archivos, headers, etc se resuelve acá. Si compilamos en C, solo le llegarán <code>.c</code> a la etapa de compilación. Reemplaza en el código los defines correspondientes, en función de las reglas definidas por los rótulos dados (<code>include, ifndef, define, ifdef, endif, ...</code>, todas instrucciones del precompilador).</p>
+<p class="has-line-data" data-line-start="101" data-line-end="102"><strong><em>Compilación</em></strong>: Verificación del código suministrado. Genera un código objeto. Los <code>.c</code> que reciben se transforman en <code>.o</code> &amp; <code>.lib</code>.</p>
+<p class="has-line-data" data-line-start="103" data-line-end="104"><strong><em>Link-Edición</em></strong>: Combina los distintos códigos objetos, librerías externas, resuelve problemas de referencias cruzadas y genera el ejecutable correspondiente a la plataforma en la que se realiza esto. Para generar un ejecutable más pequeño se puede realizar un <em>linkeo dinámico</em>. Esto consiste de linkear código objeto ya pregenerado que es usado por varios programas. Estas librerias dinámicas se encuentran una vez en la memoria del sistema y permite ahorrar memoria. Puede correr más rápido si este código ya está cacheado por otro programa que lo utilizó hace relativamente poco.</p>
+<h1 class="code-line" data-line-start=105 data-line-end=106><a id="Clase_2_105"></a>Clase 2</h1>
+<h2 class="code-line" data-line-start=107 data-line-end=108><a id="SocketshttpsrawgithubusercontentcomJonathanR0TallerDeProgramacionmasterTP19508common_socketc_107"></a><a href="https://raw.githubusercontent.com/Jonathan-R0/TallerDeProgramacion/master/TP1-9508/common_socket.c">Sockets</a></h2>
+<p class="has-line-data" data-line-start="109" data-line-end="110">Siempre que se mande un mensaje por red, al destinatario del mismo se lo apoda <code>host</code>. Todo mensaje necesita conocer la ip y puerto de quien va a recibirlo. Para modelar la ip existen los protocolos iPv4 (codifica la ip con 4 bytes) e iPv6 (codifica la ip con 16 bytes).</p>
+<p class="has-line-data" data-line-start="111" data-line-end="112">El server hace un bind de su socket a su ip local (resultado de getaddrinfo) y le podemos decir al socket que escuche a una cierta cantidad de conexiones entrantes, a través de <a href="https://man7.org/linux/man-pages/man2/listen.2.html"><code>listen</code></a> por el sistema operativo. A este socket le pueden llegar conexiones que puede aceptar o no, y hasta entonces bloqueará la ejecución del programa.</p>
+<p class="has-line-data" data-line-start="113" data-line-end="114">Del lado del cliente creamos un socket que utilizamos para conectarnos con el servidor utilizando <a href="https://man7.org/linux/man-pages/man2/connect.2.html"><code>connect</code></a> hacia la dirección dada (obtenida con el <a href="https://man7.org/linux/man-pages/man3/getaddrinfo.3.html"><code>getaddrinfo</code></a>). Se manda el mensaje de conexión y se acepta, estableciendo la misma.</p>
+<p class="has-line-data" data-line-start="115" data-line-end="116">El servidor crea un segundo socket asociado al puerto y es el que acepta conexiones. Necesito uno de estos sockets extras por cada cliente con el que trabajo. Si llegan más pedidos que espacios en la pila, estos se pierden.</p>
+<p class="has-line-data" data-line-start="117" data-line-end="118">Para cerrar un canal de comunicación, lectura y/o escritura, se utiliza el <a href="https://man7.org/linux/man-pages/man2/shutdown.2.html"><code>shutdown</code></a>.</p>
+<h3 class="code-line" data-line-start=119 data-line-end=120><a id="Protocolo_TPC_119"></a>Protocolo TPC</h3>
+<p class="has-line-data" data-line-start="121" data-line-end="122">Envia bytes, nunca streams. Además asegura que siempre llega la información sin bytes repetidos y respetando el orden de salida.</p>
+<p class="has-line-data" data-line-start="123" data-line-end="124">Para satisfacer el protocolo correctamente debemos utilizar sockets, los cuales están diferenciados por su file descriptor.</p>
+<p class="has-line-data" data-line-start="125" data-line-end="126">Existen muchos más protocolos relacionados con la comunicación web, como el DNS, HTTP(S), etc.</p>
+<h2 class="code-line" data-line-start=127 data-line-end=128><a id="Manejo_de_Archivos_127"></a>Manejo de Archivos</h2>
+<p class="has-line-data" data-line-start="129" data-line-end="130">Para manejar archivos en C podemos hacer principalmente dos cosas. Operamos con file descriptors o utilizamos la interfaz que nos provee el tipo FILE. En la materia usaremos el segundo.</p>
+<p class="has-line-data" data-line-start="131" data-line-end="132">Funciones importantes:</p>
 <ul>
-<li class="has-line-data" data-line-start="142" data-line-end="143"><a href="https://www.cplusplus.com/reference/cstdio/fopen/"><code>FILE* fopen(const char* filepath, const char* mode);</code></a></li>
-<li class="has-line-data" data-line-start="143" data-line-end="144"><a href="https://www.cplusplus.com/reference/cstdio/fread/"><code>size_t fread(void* ptr, size_t size, size_t count, FILE* fp );</code></a></li>
-<li class="has-line-data" data-line-start="144" data-line-end="145"><a href="https://www.cplusplus.com/reference/cstdio/fwrite"><code>size_t fwrite(const void* ptr, size_t size, size_t count, FILE* fp );</code></a></li>
-<li class="has-line-data" data-line-start="145" data-line-end="146"><a href="https://www.cplusplus.com/reference/cstdio/fseek/"><code>int fseek(FILE* fp, long int offset, int origin);</code></a></li>
-<li class="has-line-data" data-line-start="146" data-line-end="147"><a href="https://www.cplusplus.com/reference/cstdio/ftell/"><code>int ftell(FILE* fp);</code></a></li>
-<li class="has-line-data" data-line-start="147" data-line-end="148"><a href="https://www.cplusplus.com/reference/cstdio/rewind/"><code>void rewind(FILE* fp);</code></a></li>
-<li class="has-line-data" data-line-start="148" data-line-end="149"><a href="https://www.cplusplus.com/reference/cstdio/getc/"><code>int getc(FILE* fp);</code></a></li>
-<li class="has-line-data" data-line-start="149" data-line-end="150"><a href="https://www.cplusplus.com/reference/cstdio/putc/"><code>int putc(FILE* fp);</code></a></li>
-<li class="has-line-data" data-line-start="150" data-line-end="151"><a href="https://www.cplusplus.com/reference/cstdio/fgets/"><code>char* fgets(const char* str, int n, FILE* fp);</code></a></li>
-<li class="has-line-data" data-line-start="151" data-line-end="152"><a href="https://www.cplusplus.com/reference/cstdio/fputs/"><code>int fputs(const char* str, FILE* fp);</code></a></li>
-<li class="has-line-data" data-line-start="152" data-line-end="153"><a href="https://www.cplusplus.com/reference/cstdio/feof/"><code>int feof(FILE* fp);</code></a></li>
-<li class="has-line-data" data-line-start="153" data-line-end="154"><a href="https://linux.die.net/man/2/ftruncate"><code>int ftruncate(FILE* fp, long int offset);</code></a></li>
-<li class="has-line-data" data-line-start="154" data-line-end="156"><a href="https://www.cplusplus.com/reference/cstdio/fclose/"><code>int fclose(FILE* fp);</code></a></li>
+<li class="has-line-data" data-line-start="133" data-line-end="134"><a href="https://www.cplusplus.com/reference/cstdio/fopen/"><code>FILE* fopen(const char* filepath, const char* mode);</code></a></li>
+<li class="has-line-data" data-line-start="134" data-line-end="135"><a href="https://www.cplusplus.com/reference/cstdio/fread/"><code>size_t fread(void* ptr, size_t size, size_t count, FILE* fp );</code></a></li>
+<li class="has-line-data" data-line-start="135" data-line-end="136"><a href="https://www.cplusplus.com/reference/cstdio/fwrite"><code>size_t fwrite(const void* ptr, size_t size, size_t count, FILE* fp );</code></a></li>
+<li class="has-line-data" data-line-start="136" data-line-end="137"><a href="https://www.cplusplus.com/reference/cstdio/fseek/"><code>int fseek(FILE* fp, long int offset, int origin);</code></a></li>
+<li class="has-line-data" data-line-start="137" data-line-end="138"><a href="https://www.cplusplus.com/reference/cstdio/ftell/"><code>int ftell(FILE* fp);</code></a></li>
+<li class="has-line-data" data-line-start="138" data-line-end="139"><a href="https://www.cplusplus.com/reference/cstdio/rewind/"><code>void rewind(FILE* fp);</code></a></li>
+<li class="has-line-data" data-line-start="139" data-line-end="140"><a href="https://www.cplusplus.com/reference/cstdio/getc/"><code>int getc(FILE* fp);</code></a></li>
+<li class="has-line-data" data-line-start="140" data-line-end="141"><a href="https://www.cplusplus.com/reference/cstdio/putc/"><code>int putc(FILE* fp);</code></a></li>
+<li class="has-line-data" data-line-start="141" data-line-end="142"><a href="https://www.cplusplus.com/reference/cstdio/fgets/"><code>char* fgets(const char* str, int n, FILE* fp);</code></a></li>
+<li class="has-line-data" data-line-start="142" data-line-end="143"><a href="https://www.cplusplus.com/reference/cstdio/fputs/"><code>int fputs(const char* str, FILE* fp);</code></a></li>
+<li class="has-line-data" data-line-start="143" data-line-end="144"><a href="https://www.cplusplus.com/reference/cstdio/feof/"><code>int feof(FILE* fp);</code></a></li>
+<li class="has-line-data" data-line-start="144" data-line-end="145"><a href="https://linux.die.net/man/2/ftruncate"><code>int ftruncate(FILE* fp, long int offset);</code></a></li>
+<li class="has-line-data" data-line-start="145" data-line-end="147"><a href="https://www.cplusplus.com/reference/cstdio/fclose/"><code>int fclose(FILE* fp);</code></a></li>
 </ul>
-<p class="has-line-data" data-line-start="156" data-line-end="157">Los modos de apertura de archivos en C son los siguientes:</p>
+<p class="has-line-data" data-line-start="147" data-line-end="148">Los modos de apertura de archivos en C son los siguientes:</p>
 <ul>
-<li class="has-line-data" data-line-start="158" data-line-end="159"><code>r</code>: Lectura. El archivo debe existir.</li>
-<li class="has-line-data" data-line-start="159" data-line-end="160"><code>w</code>: Escritura. Crea el archivo si no existe, de lo contrario lo sobreescribe.</li>
-<li class="has-line-data" data-line-start="160" data-line-end="161"><code>a</code>: Escritura al final. Crea el archivo si no existe.</li>
-<li class="has-line-data" data-line-start="161" data-line-end="162"><code>r+</code>: Lectura y escritura al principio. El archivo debe existir.</li>
-<li class="has-line-data" data-line-start="162" data-line-end="163"><code>w+</code>: Lectura y escritura. Sobreescribe el archivo si existe.</li>
-<li class="has-line-data" data-line-start="163" data-line-end="164"><code>a+</code>: Lectura y escritura al final del mismo.</li>
-<li class="has-line-data" data-line-start="164" data-line-end="165"><code>b</code>: Para que se trabajen sobre archivos binarios.</li>
-<li class="has-line-data" data-line-start="165" data-line-end="167"><code>t</code>: Para archivos de texto.</li>
+<li class="has-line-data" data-line-start="149" data-line-end="150"><code>r</code>: Lectura. El archivo debe existir.</li>
+<li class="has-line-data" data-line-start="150" data-line-end="151"><code>w</code>: Escritura. Crea el archivo si no existe, de lo contrario lo sobreescribe.</li>
+<li class="has-line-data" data-line-start="151" data-line-end="152"><code>a</code>: Escritura al final. Crea el archivo si no existe.</li>
+<li class="has-line-data" data-line-start="152" data-line-end="153"><code>r+</code>: Lectura y escritura al principio. El archivo debe existir.</li>
+<li class="has-line-data" data-line-start="153" data-line-end="154"><code>w+</code>: Lectura y escritura. Sobreescribe el archivo si existe.</li>
+<li class="has-line-data" data-line-start="154" data-line-end="155"><code>a+</code>: Lectura y escritura al final del mismo.</li>
+<li class="has-line-data" data-line-start="155" data-line-end="156"><code>b</code>: Para que se trabajen sobre archivos binarios.</li>
+<li class="has-line-data" data-line-start="156" data-line-end="158"><code>t</code>: Para archivos de texto.</li>
 </ul>
-<h1 class="code-line" data-line-start=167 data-line-end=168><a id="Clase_3_167"></a>Clase 3</h1>
-<h1 class="code-line" data-line-start=169 data-line-end=170><a id="Clase_4_169"></a>Clase 4</h1>
-<h1 class="code-line" data-line-start=171 data-line-end=172><a id="Clase_5_171"></a>Clase 5</h1>
-<h1 class="code-line" data-line-start=173 data-line-end=174><a id="Clase_6_173"></a>Clase 6</h1>
-<h1 class="code-line" data-line-start=175 data-line-end=176><a id="Clase_7_175"></a>Clase 7</h1>
-<h2 class="code-line" data-line-start=177 data-line-end=178><a id="SDL_177"></a>SDL</h2>
-<p class="has-line-data" data-line-start="179" data-line-end="180">Un programa que inicializa una ventana es la siguiente:</p>
-<pre><code class="has-line-data" data-line-start="182" data-line-end="204">int main(int argc, char* argv[]) {
+<h1 class="code-line" data-line-start=158 data-line-end=159><a id="Clase_3_158"></a>Clase 3</h1>
+<h2 class="code-line" data-line-start=160 data-line-end=161><a id="RAII_160"></a>RAII</h2>
+<p class="has-line-data" data-line-start="162" data-line-end="163">Resource Acquisition is Initialization (RAII) es un patrón de programación donde se acostumbra a pedir los recursos necesarios al sistema operativo en el constructor de un objeto y devolverlos en su destructor. Para hacer esto correctamente debemos asegurarnos que los constructores y destructores se llamen siempre para cada objeto que queremos crear, para así evitar inconsistencias con la forma de manejar recursos y evitar errores.</p>
+<h2 class="code-line" data-line-start=164 data-line-end=165><a id="Pasajes_de_Objetos_en_C_164"></a>Pasajes de Objetos en C++</h2>
+<p class="has-line-data" data-line-start="166" data-line-end="167">Tenemos cuatro formas de pasar objetos como parámetros en C++:</p>
+<pre><code class="has-line-data" data-line-start="169" data-line-end="174">void A(Class obj);
+void B(Class* obj);
+void C(Class&amp; obj);
+void D(Class&amp;&amp; obj);
+</code></pre>
+<ul>
+<li class="has-line-data" data-line-start="174" data-line-end="176">
+<p class="has-line-data" data-line-start="174" data-line-end="175"><code>A</code> recibe por copia, es decir, al scope de A entra como obj una copia la instancia de Class que haya sido pasada por parámetro. Esto es <strong><em>peligroso</em></strong> pues si pasamos un objeto por copia que respeta RAII a un scope y este se destruye al salir del mismo (pues si un objeto sale de un scope en C++ se destruye automáticamente), podemos perder algún dato dinámico que podríamos querer usar en un futuro. Otro ejemplo peligroso es el de recibir una matriz por copia; esto podría afectar fuertemente a la performance del programa.</p>
+</li>
+<li class="has-line-data" data-line-start="176" data-line-end="178">
+<p class="has-line-data" data-line-start="176" data-line-end="177"><code>B</code> recibe por puntero, es decir, al scope entra la dirección de memoria donde existe el objeto. Siempre pesa que lo que pesa un puntero y evita llamadas innecesarias al destructor.</p>
+</li>
+<li class="has-line-data" data-line-start="178" data-line-end="180">
+<p class="has-line-data" data-line-start="178" data-line-end="179"><code>C</code> pasa por referencia. Las referencias son como punteros que <em>siempre deben estar inicializados y no pueden cambiar el lugar a donde apuntan</em>. No puedo asignar memoria para una referencia sin inicializarla.</p>
+</li>
+<li class="has-line-data" data-line-start="180" data-line-end="182">
+<p class="has-line-data" data-line-start="180" data-line-end="181"><code>D</code> pasa por movimiento. El método toma el ownership del objeto que recibe. En los constructores se tiende a deshabilitar el objeto entrante para desplazar el ownership del mismo a nuestro nuevo objeto.</p>
+</li>
+</ul>
+<h2 class="code-line" data-line-start=182 data-line-end=183><a id="POO_en_C_182"></a>POO en C++</h2>
+<h3 class="code-line" data-line-start=184 data-line-end=185><a id="Keywords_184"></a>Keywords</h3>
+<p class="has-line-data" data-line-start="186" data-line-end="187">La keyword const al final de un método implica que el mismo es solo de lectura. No modifica los datos del objeto. Por ejemplo resulta útil para llamar a los métodos de un objeto <code>const</code>.</p>
+<p class="has-line-data" data-line-start="188" data-line-end="189">Para deshabilitar un método de una clase debemos introducir <code>delete</code> al final del mismo. Esto es útil, por ejemplo, para evitar que se llame a algún constructor por copia “sin querer”.</p>
+<p class="has-line-data" data-line-start="190" data-line-end="191">La keyword <code>virtual</code> nos deja hacer que un método sea abstracto. Se escribe al principio de la firma del método. Agrega el método a la <em>vtable</em> (que redirecciona internamente a los métodos virtuales a las posiciones de memoria donde se encuentran los otros métodos que la implementan, siempre en función del tipo al que apuntamos).</p>
+<p class="has-line-data" data-line-start="192" data-line-end="193">Si un método debe si o si implementarse sobre alguno abstracto, podemos agregar <code>override</code> al final de la firma del mismo para que el compilador se fije si implementa alguna función de la vtable.</p>
+<p class="has-line-data" data-line-start="194" data-line-end="195">Para que un método sea de clase añadimos <code>static</code> al principio de la firma del mismo.</p>
+<h3 class="code-line" data-line-start=196 data-line-end=197><a id="Herencia_Clases_Abstractas_e_Interfaces_196"></a>Herencia, Clases Abstractas e Interfaces</h3>
+<ul>
+<li class="has-line-data" data-line-start="198" data-line-end="200">
+<p class="has-line-data" data-line-start="198" data-line-end="199">No se pueden heredar constructores, sobrecargas de y friends.</p>
+</li>
+<li class="has-line-data" data-line-start="200" data-line-end="202">
+<p class="has-line-data" data-line-start="200" data-line-end="201">Para que un método sea puramente abstracto debemos hacer que tenga <code>virtual</code> al inicio de la firma (así tiene una entrada en la <em>vtable</em>) y lo igualamos a cero.</p>
+</li>
+<li class="has-line-data" data-line-start="202" data-line-end="204">
+<p class="has-line-data" data-line-start="202" data-line-end="203">Las interfaces deben tener todos sus métodos puramente abstractos. No son instanciables.</p>
+</li>
+<li class="has-line-data" data-line-start="204" data-line-end="206">
+<p class="has-line-data" data-line-start="204" data-line-end="205">Es muy importante tener en cuenta que <em>si el destructor tiene que ser abstracto, <strong><em>debe</em></strong> tener <code>virtual</code>.</em> Esto resulta ser crítico pues si heredamos de una clase que no hace nada en el destructor y nosotros como hijos hacemos RAII para nuestros propios recursos, puede pasar que no se liberen los mismos.</p>
+</li>
+<li class="has-line-data" data-line-start="206" data-line-end="209">
+<p class="has-line-data" data-line-start="206" data-line-end="208">Si heredamos de una clase, instanciamos al padre y en el lugar del padre metemos a una variable hija, es decir la heredera, puede ocurrir que el tamaño de la hija supere al del padre. Esto hace que las llamadas polimórficas no se activen, pues a la hija se le deben quitar los accesorios que implementó sobre el padre para que pueda encastrar en el pedazo de memoria del mismo. A este problema se lo conoce como <em>object slicing</em>. Una buena forma de solucionarlo es usando referencias o punteros, que siempre ocupan el mismo espacio.<br>
+También se puede manifestar este valor en el pasaje por parámetros.</p>
+</li>
+<li class="has-line-data" data-line-start="209" data-line-end="211">
+<p class="has-line-data" data-line-start="209" data-line-end="210">Se conoce como <em>problema del diamante</em> al caso donde una clase A es heredada por B y C, quienes a su vez son heredadas por D (si, C++ soporta herencia múltiple y solo debería hacerse si es contra interfaces). Esto puede hacer que si A tiene algún atributo e instanciamos a D, este no sabrá si usar al atributo de B o C. El compilador se encargará de levantar el error correspondiente.</p>
+</li>
+</ul>
+<h3 class="code-line" data-line-start=211 data-line-end=212><a id="Polimorfismo_211"></a>Polimorfismo</h3>
+<p class="has-line-data" data-line-start="213" data-line-end="214">Ejemplo de polimorfismo con herencia:</p>
+<pre><code class="has-line-data" data-line-start="216" data-line-end="255">class Father {
+  public:
+    void method() {
+      std::cout &lt;&lt; &quot;Base&quot; &lt;&lt; std::endl;
+    }
+};
+
+class Son : public Father {
+  public:
+    void method() {
+      std::cout &lt;&lt; &quot;Son&quot; &lt;&lt; std::endl;
+      // Podría decorar al método del hijo con el del padre:
+      // Father::method();
+    }
+};
+
+class VirtualFather {
+  public:
+    void method() {
+      std::cout &lt;&lt; &quot;Base&quot; &lt;&lt; std::endl;
+    }
+};
+
+class VirtualSon : public VirtualFather {
+  public:
+    virtual void method() override {
+      std::cout &lt;&lt; &quot;Son&quot; &lt;&lt; std::endl;
+    }
+};
+
+Father* f;
+Son s;
+VirtualFather* vf;
+VirtualSon vs;
+f = &amp;s;
+vf = &amp;vs;
+f-&gt;method();   // Prints &quot;Base&quot;
+vf-&gt;method();  // Prints &quot;Son&quot;
+</code></pre>
+<p class="has-line-data" data-line-start="256" data-line-end="257">La resolución de problemas dinámicos de la vtable se la conoce como <code>Late Binding</code> o <code>Dynamic Binding</code>. De lo contrario, si se resuelve en la compilación, se lo conoce como <code>Static Binding</code>.</p>
+<h1 class="code-line" data-line-start=258 data-line-end=259><a id="Clase_4_258"></a>Clase 4</h1>
+<h2 class="code-line" data-line-start=260 data-line-end=261><a id="Programacin_Multihilo_260"></a>Programación Multihilo</h2>
+<p class="has-line-data" data-line-start="262" data-line-end="263">En las arquitecturas de las máquinas que utilizamos podemos darnos cuenta que la ejecución de un proceso que dura un tiempo determinado, hace que la máquina tenga que trabajar durante ese tiempo completo. Pero eso no necesariamente implica que la CPU va a estar computando valores durante todo ese tiempo; es más, puede ocurrir que ciertas operaciones lentas representen la mayoría del tiempo requerido por estos procesos. Esto hace que desperdiciemos tiempo de cómputo de la CPU. Para evitar esto se hace multitasking, donde el kernel, con su <em>Scheduler</em> corran de forma concurrente.</p>
+<p class="has-line-data" data-line-start="264" data-line-end="265">Y concurrente no significa paralelo. Es concurrente, pues el Scheduler selecciona constantemente que proceso tiene acceso a la CPU, haciendo que la ejecución de cada uno de estos se transforme en una ejecución de a ráfagas más rápidas. Solo cambiamos la forma en que procesamos datos y esto no implica tener una ventaja temporal, hasta que pensamos en lo dicho en el parrafo anterior. Muchas veces estos cambios que realiza el Scheduler, hace que mientras un proceso que tarda (por ejemplo con la espera a una búsqueda en memoria) y está ocupando la CPU haciendo nada, pueda ser desalojado un rato por otro que aproveche y compute datos.</p>
+<p class="has-line-data" data-line-start="266" data-line-end="267">Estos saltos entre actores que ocupan el CPU por el sistema operativo se lo conoce como <em>context switching</em>.</p>
+<p class="has-line-data" data-line-start="268" data-line-end="269">Un proceso puede estar en los siguientes estados:</p>
+<ul>
+<li class="has-line-data" data-line-start="270" data-line-end="271">Inicialización</li>
+<li class="has-line-data" data-line-start="271" data-line-end="272">Espera a la CPU</li>
+<li class="has-line-data" data-line-start="272" data-line-end="273">Utilizacón de CPU</li>
+<li class="has-line-data" data-line-start="273" data-line-end="274">Bloqueados (por I/O, etc)</li>
+<li class="has-line-data" data-line-start="274" data-line-end="276">Completados</li>
+</ul>
+<p class="has-line-data" data-line-start="276" data-line-end="277">El paralelismo real se realiza con los cores del procesador. A estos hilos se los conoce como <em>hilos pesados, heavy o del kernel</em>. Los <em>hilos verdes o de usuario</em> a diferencia del resto, está controlado por un pseudo-scheduler y es este mismo el que decide que proceso entra o no en el hilo del kernel, el real. El context switching de estos pseudo-scheduler está delegado por el context switching del OS; le sacamos peso de encima, pero no le permite realizar tareas realmente paralelas.</p>
+<h3 class="code-line" data-line-start=278 data-line-end=279><a id="Diferencias_entre_Procesos_e_Hilos_278"></a>Diferencias entre Procesos e Hilos</h3>
+<p class="has-line-data" data-line-start="280" data-line-end="281">Cada proceso puede compartir simplemente su code segment.</p>
+<p class="has-line-data" data-line-start="282" data-line-end="283">Los hilos en cambio, comparten el code segment, el heap, el data segment y los file descriptors. Todos estos están separados para los procesos.</p>
+<p class="has-line-data" data-line-start="284" data-line-end="285">Los dos no tienen acceso al stack y registros de sus compañeros.</p>
+<h2 class="code-line" data-line-start=286 data-line-end=287><a id="Mutex__Locks_286"></a>Mutex &amp; Locks</h2>
+<p class="has-line-data" data-line-start="288" data-line-end="289">Como diferentes hilos pueden acceder al mismo grupo de variables, esto puede introducir condiciones de carrera, es decir, se pierde el orden de instrucciones ejecutadas. Para mantener al mismo y asegurar la atomicidad de la ejecución, se introducen los mutex. Estos permiten realizar un lock sobre un segmento de código; si un hilo bloquea cierto segmento de código, ningún otro podrá entrar hasta que el primero lo desbloquee. Si esto último no ocurre, estaremos en presencia de un <em>deadlock</em>.</p>
+<p class="has-line-data" data-line-start="290" data-line-end="291">En C++ podemos bloquear un hilo con <a href="https://www.cplusplus.com/reference/mutex/mutex/"><code>std::mutex</code></a>, el cual requiere un lock y unlock (debemos minimizar las llamadas a estos dentro de los métodos y funciones para evitar deadlocks inesperados). También se puede utilizar <a href="https://www.cplusplus.com/reference/mutex/unique_lock/"><code>std::unique_lock</code></a> (el cual brinda la ventaja de ser RAII pues, al salir del scope donde hace el lock, termina haciendo el unlock automaticamente).</p>
+<h1 class="code-line" data-line-start=292 data-line-end=293><a id="Clase_5_292"></a>Clase 5</h1>
+<h2 class="code-line" data-line-start=294 data-line-end=295><a id="Templates_294"></a>Templates</h2>
+<p class="has-line-data" data-line-start="296" data-line-end="297">En C/C++ podemos hacer algo parecido a los templates aprovechando la magia del precompilador:</p>
+<pre><code class="has-line-data" data-line-start="299" data-line-end="306">#define MAKE_ARRAY_STRUCT(TYPE) \\
+  class Array_##TYPE { \\
+    TYPE data[64]; \\
+    void set(int p, TYPE v) { data[p] = v; } \\
+    TYPE get(int p) { return data[p]; } \\
+  } 
+</code></pre>
+<p class="has-line-data" data-line-start="307" data-line-end="308">Y con templates:</p>
+<pre><code class="has-line-data" data-line-start="310" data-line-end="317">template&lt;class T&gt;
+class Array {
+  T data[64];
+  void set(int p, T t) { data[p] = t; }
+  T get(int p) { return data[p];}
+}
+</code></pre>
+<p class="has-line-data" data-line-start="318" data-line-end="319">Podemos crear objetos personalizados. Acepta tanto tipos primitivos como clases propias.</p>
+<p class="has-line-data" data-line-start="320" data-line-end="321">También acepta más de un token y puede tener un valor por default:</p>
+<pre><code class="has-line-data" data-line-start="323" data-line-end="334">template&lt;class T, class U&gt;
+class Dupla {
+  T t;
+  U u;
+}
+
+template&lt;class T=char, int size=64&gt;
+class ArrayVariable {
+  T data[size];
+}
+</code></pre>
+<p class="has-line-data" data-line-start="335" data-line-end="336">Si quiero que cuando el tipo del template sea uno en particular, se le pueda hardocodear la implementación de la siguiente forma:</p>
+<pre><code class="has-line-data" data-line-start="338" data-line-end="345">template&lt;class T&gt;
+class Array { ... }
+
+template&lt;&gt;
+class Array&lt;bool&gt; { ... }
+// Si T == bool → definí a la clase Array booleana de la forma que te hardcodeo acá.
+</code></pre>
+<p class="has-line-data" data-line-start="346" data-line-end="347">Este estilo de programación es conocida como programación genérica.</p>
+<h2 class="code-line" data-line-start=348 data-line-end=349><a id="Sobrecarga_de_Operadores_348"></a>Sobrecarga de Operadores</h2>
+<p class="has-line-data" data-line-start="350" data-line-end="351">Supongamos que tenemos las instancias <code>x1</code>, <code>x2</code> y queremos operar sobre ellas de la siguiente forma <code>x1 &lt;OP&gt; x2</code>. Esto en C++ se puede representar así:</p>
+<pre><code class="has-line-data" data-line-start="353" data-line-end="356">R resultado = x1 &lt;OP&gt; x2;
+R resultado = x1.operator&lt;OP&gt;(x2);
+</code></pre>
+<p class="has-line-data" data-line-start="357" data-line-end="358">Y definir así:</p>
+<pre><code class="has-line-data" data-line-start="360" data-line-end="362">R operator&lt;OP&gt;(const X&amp; other) const {...}
+</code></pre>
+<p class="has-line-data" data-line-start="363" data-line-end="364">Otros ejemplos particulares son:</p>
+<pre><code class="has-line-data" data-line-start="367" data-line-end="395">class Complex {
+  
+  public:
+
+  float re, im;
+
+  Complex(float re, float im) : re(re), im(im) {}
+
+  Complex&amp; operator=(const Complex&amp; other) {
+    if (this != &amp;other) {
+      this-&gt;re = other.re;
+      this-&gt;im = other.im;
+    }
+    return *this;
+  }
+
+  Complex operator+(const Complex&amp; other) const {
+    Complex resultado(this-&gt;re + other.re, this-&gt;im + other.im);
+    return resultado;
+  }
+
+  // Sobrecargar un casteo implica que no es necesario decir el tipo que devuelve pues es obvio. 
+  operator float() const {
+    return sqrt(this-&gt;re * this-&gt;re + this-&gt;im - this-&gt;im);
+  }
+
+};
+</code></pre>
+<p class="has-line-data" data-line-start="396" data-line-end="397">Se conoce como <em>functor</em> a la llamada del <code>operator()</code>.</p>
+<h2 class="code-line" data-line-start=398 data-line-end=399><a id="STL_398"></a>STL</h2>
+<p class="has-line-data" data-line-start="400" data-line-end="401">Esta librería, haciendo uso de templates, implementa, entre otras cosas, un conjunto importantísimo y extenso de estructuras de datos. Es muy recomendable trabajar con estas y no con cualquier implementación personal la cual no está sujeta a las optimizaciones que la STL pueda realizar.</p>
+<h1 class="code-line" data-line-start=402 data-line-end=403><a id="Clase_6_402"></a>Clase 6</h1>
+<h2 class="code-line" data-line-start=404 data-line-end=405><a id="Manejo_de_Errores_404"></a>Manejo de Errores</h2>
+<p class="has-line-data" data-line-start="406" data-line-end="407">La keyword <code>throw</code> permite lanzar cualquier cosa como una excepción. Esto, o la aparición natural de una excepción para la ejecución del programa para hacer <a href="https://teamtreehouse.com/community/whats-meant-by-bubbling"><em>bubble up</em></a>. Una forma óptima de atrapar excepciones es con un bloque <a href="https://en.cppreference.com/w/cpp/language/try_catch"><em>try-catch</em></a>:</p>
+<pre><code class="has-line-data" data-line-start="409" data-line-end="419">try {
+  doStuffWithSockets();
+} catch (SocketException&amp; e) {
+  return;
+} catch (std::exception&amp; e) {
+  std::cerr &lt;&lt; e.what() &lt;&lt; std::endl;
+} catch (...) {
+  std::cerr &lt;&lt; &quot;Unkown error&quot; &lt;&lt; std::endl;
+}
+</code></pre>
+<p class="has-line-data" data-line-start="420" data-line-end="421">En el ejemplo vemos que pueden pasar varias cosas. Si se levanta una <code>SocketException</code> (que por ejemplo represente que me cerraron un socket que acepté) no hago nada y termino la ejecución. Si atrapo una <code>std::exception</code> o algo que herede de esto imprimo la descripción del mismo. Finalmente mantengo un catch genérico para cualquier cosa que escape a eso.</p>
+<p class="has-line-data" data-line-start="422" data-line-end="423">Es útil meter uno de estos bloques por cada hilo que lanzo y en las “capas superiores” de nuestro hilo principal.</p>
+<p class="has-line-data" data-line-start="424" data-line-end="425">Para evitar tener errores con la devolución de recursos en un bloque catch, hacemos uso del patrón RAII. Wrappeamos todo pedido de recursos en el constructor de una clase y la liberación en el destructor para asegurar que este último se llamará automaticamente al salir del try. Este mismo truco se puede realizar para wrappear objetos que pueden evitar tener estas fallas en el constructor de un objeto (pues ahí no se llamaría al destructor).</p>
+<p class="has-line-data" data-line-start="426" data-line-end="427">Una api es <em>exception safe strong</em> si es resistente a excepciones, es decir, está bien preparado para lidiar con estas. De lo contrario es <em>exception safe weak</em>.</p>
+<h2 class="code-line" data-line-start=428 data-line-end=429><a id="Modelo_ClienteServidor_428"></a>Modelo Cliente-Servidor</h2>
+<p class="has-line-data" data-line-start="430" data-line-end="431">Este patrón se utiliza para establecer comunicaciones desde el servidor hacia varios clientes.</p>
+<p class="has-line-data" data-line-start="432" data-line-end="433">Digamos que para cierto momento n clientes conectados a nuestro server, por lo tanto nuestro modelo propone lanzar n+2 hilos.</p>
+<p class="has-line-data" data-line-start="434" data-line-end="435"><img src="/img/clientserverpattern.png" alt="Servidor manejando varios clientes"></p>
+<p class="has-line-data" data-line-start="436" data-line-end="437">El primero será el hilo principal. Este tendrá algún objeto que pueda lanzar al segundo hilo. Este será el hilo con el socket aceptador por cada cliente que recibe lanza un hilo para lidiar con ellos. El destructor debe tener un recolector de basura que elimina los recursos y cierra los hilos y sockets individuales. El hilo principal, cuando se de cuenta de que debe cerrar al aceptador, se llama a su destructor, cierra las conexiones y libera todos los recursos.</p>
+<h2 class="code-line" data-line-start=438 data-line-end=439><a id="Programacin_Orientada_a_Eventos_438"></a>Programación Orientada a Eventos</h2>
+<p class="has-line-data" data-line-start="440" data-line-end="441">Podríamos definir a cada evento como un suceso cuya aparición ante el sistema es aleatorio. Esto hace que, si nuestro código trabaja con estos eventos, tengamos que estar esperando constantemente a que alguno se manifieste. Esto intuitivamente se puede hacer utilizando mezclas entre concurrencia y estructuras de datos.</p>
+<p class="has-line-data" data-line-start="442" data-line-end="443">Un buen ejemplo es el de la cola de eventos. La misma apila objetos que representen eventos a medida que van entrando y con un mutex los sacamos manteniendo el orden.</p>
+<p class="has-line-data" data-line-start="444" data-line-end="445">Es además muy útil con el controlador del patrón MVC y hacer las verificaciones de eventos lo más rápido y sencillo posible.</p>
+<h1 class="code-line" data-line-start=446 data-line-end=447><a id="Clase_7_446"></a>Clase 7</h1>
+<h2 class="code-line" data-line-start=448 data-line-end=449><a id="SDL_448"></a>SDL</h2>
+<p class="has-line-data" data-line-start="450" data-line-end="451">Un programa que inicializa una ventana es la siguiente:</p>
+<pre><code class="has-line-data" data-line-start="453" data-line-end="475">int main(int argc, char* argv[]) {
   SDL_INIT(SDL_INIT_VIDEO);
   SDL_Window* window;
   SDL_Renderer* renderer;
@@ -153,11 +362,11 @@ void foo() {
   return 0;
 }
 </code></pre>
-<p class="has-line-data" data-line-start="205" data-line-end="206">Podemos utilizar funciones como <a href="https://wiki.libsdl.org/SDL_GetWindowSize"><code>SDL_GetWindowSize</code></a>, <a href="https://wiki.libsdl.org/SDL_SetRenderDrawColor"><code>SDL_SetRenderDrawColor</code></a>, <a href="https://wiki.libsdl.org/SDL_DrawLine"><code>SDL_DrawLine</code></a>, <a href="https://wiki.libsdl.org/SDL_RenderClear"><code>SDL_RenderClear</code></a> y <a href="https://wiki.libsdl.org/SDL_RenderPresent"><code>SDL_RenderPresent</code></a>.</p>
-<h1 class="code-line" data-line-start=207 data-line-end=208><a id="Clase_8_207"></a>Clase 8</h1>
-<h2 class="code-line" data-line-start=209 data-line-end=210><a id="Namespaces_209"></a>Namespaces</h2>
-<p class="has-line-data" data-line-start="211" data-line-end="212">Nos permite diferenciar instancias y variables. Por ejemplo:</p>
-<pre><code class="has-line-data" data-line-start="214" data-line-end="222">namespace Black {
+<p class="has-line-data" data-line-start="476" data-line-end="477">Podemos utilizar funciones como <a href="https://wiki.libsdl.org/SDL_GetWindowSize"><code>SDL_GetWindowSize</code></a>, <a href="https://wiki.libsdl.org/SDL_SetRenderDrawColor"><code>SDL_SetRenderDrawColor</code></a>, <a href="https://wiki.libsdl.org/SDL_DrawLine"><code>SDL_DrawLine</code></a>, <a href="https://wiki.libsdl.org/SDL_RenderClear"><code>SDL_RenderClear</code></a> y <a href="https://wiki.libsdl.org/SDL_RenderPresent"><code>SDL_RenderPresent</code></a>.</p>
+<h1 class="code-line" data-line-start=478 data-line-end=479><a id="Clase_8_478"></a>Clase 8</h1>
+<h2 class="code-line" data-line-start=480 data-line-end=481><a id="Namespaces_480"></a>Namespaces</h2>
+<p class="has-line-data" data-line-start="482" data-line-end="483">Nos permite diferenciar instancias y variables. Por ejemplo:</p>
+<pre><code class="has-line-data" data-line-start="485" data-line-end="493">namespace Black {
   class Cat { ... }
 }
 
@@ -165,12 +374,12 @@ namespace Orange {
   class Cat { ... }
 }
 </code></pre>
-<p class="has-line-data" data-line-start="223" data-line-end="224">Nos permite diferenciar entre <code>Black::Cat</code> y <code>Orange::Cat</code>.</p>
-<p class="has-line-data" data-line-start="225" data-line-end="226">Si un namespace es anónimo, cualquier instancia de lo que se encuentre adentro del mismo podrá existir en el módulo en que se lo definió. Eso permite generar una funcionalidad similar a la de <em>static</em>.</p>
-<p class="has-line-data" data-line-start="227" data-line-end="228">La keyword <code>using</code>, al utilizarla con namespaces nos permite obviar la mención de estos en nustros módulo de código.</p>
-<h2 class="code-line" data-line-start=229 data-line-end=230><a id="Friendship_229"></a>Friendship</h2>
-<p class="has-line-data" data-line-start="231" data-line-end="232">Nos permite acceder a atributos privados de nuestros “amigos”. No se hereda. Un buen ejemplo está en el siguiente código, donde implementamos un método que nos permite imprimir los valores de nuestra clase Stack, sin tener getters.</p>
-<pre><code class="has-line-data" data-line-start="234" data-line-end="247">class Stack {
+<p class="has-line-data" data-line-start="494" data-line-end="495">Nos permite diferenciar entre <code>Black::Cat</code> y <code>Orange::Cat</code>.</p>
+<p class="has-line-data" data-line-start="496" data-line-end="497">Si un namespace es anónimo, cualquier instancia de lo que se encuentre adentro del mismo podrá existir en el módulo en que se lo definió. Eso permite generar una funcionalidad similar a la de <em>static</em>.</p>
+<p class="has-line-data" data-line-start="498" data-line-end="499">La keyword <code>using</code>, al utilizarla con namespaces nos permite obviar la mención de estos en nustros módulo de código.</p>
+<h2 class="code-line" data-line-start=500 data-line-end=501><a id="Friendship_500"></a>Friendship</h2>
+<p class="has-line-data" data-line-start="502" data-line-end="503">Nos permite acceder a atributos privados de nuestros “amigos”. No se hereda. Un buen ejemplo está en el siguiente código, donde implementamos un método que nos permite imprimir los valores de nuestra clase Stack, sin tener getters.</p>
+<pre><code class="has-line-data" data-line-start="505" data-line-end="518">class Stack {
   ...
   friend std::ostream&amp; operator&lt;&lt; (std::ostream&amp; stream, const Stack&amp; stack) {
     stream &lt;&lt; &quot;[&quot;;
