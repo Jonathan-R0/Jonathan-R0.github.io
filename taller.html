@@ -5611,8 +5611,8 @@
 
 <body id="preview">
   <h1 class="code-line" data-line-start=0 data-line-end=1><a
-      id="Taller_de_Programacin_Resumen_para_el_Finalhttpsjonathanr0githubiotallerhtml_0"></a><a
-      href="https://jonathan-r0.github.io/taller.html">Taller de Programación, Resumen para el Final.</a></h1>
+      id="Taller_de_Programacin_Resumen_para_el_Finalhttpsjonathanr0githubiotallerhtml_0"></a>Taller de Programación,
+    Resumen para el Final.</h1>
   <h2 class="code-line" data-line-start=1 data-line-end=2><a id="Ctedra_Veiga_2C_2020_1"></a>Cátedra Veiga, 2C 2020.
   </h2>
   <p class="has-line-data" data-line-start="3" data-line-end="4">Este resumen junta información relevante dictada
@@ -5664,7 +5664,8 @@
 };
 </code></pre>
   <p class="has-line-data" data-line-start="43" data-line-end="44">La estructura general pesará 8 bytes pues si accedo a
-    <code>l</code> estaré leyendo el número que luego <code>p</code> interpreta como una dirección de memoria.</p>
+    <code>l</code> estaré leyendo el número que luego <code>p</code> interpreta como una dirección de memoria.
+  </p>
   <h2 class="code-line" data-line-start=45 data-line-end=46><a id="Ajuste_de_Endianness_45"></a>Ajuste de Endianness
   </h2>
   <p class="has-line-data" data-line-start="47" data-line-end="48">Para ajustar el endianness de nuestros datos cuando
@@ -5675,9 +5676,11 @@ int htonl(int);
 int ntohl(int);
 </code></pre>
   <p class="has-line-data" data-line-start="56" data-line-end="57">Siendo <code>hton</code> host-to-network,
-    <code>ntoh</code> network-to-host y el último caracter indica si es un short o int el dato con el que trabaja.</p>
+    <code>ntoh</code> network-to-host y el último caracter indica si es un short o int el dato con el que trabaja.
+  </p>
   <p class="has-line-data" data-line-start="58" data-line-end="59">Si recibo un dato debería pasarlo por
-    <code>ntoh</code> y si lo mando <code>hton</code> para ajustar el endianness.</p>
+    <code>ntoh</code> y si lo mando <code>hton</code> para ajustar el endianness.
+  </p>
   <h2 class="code-line" data-line-start=60 data-line-end=61><a id="Segmentos_de_Memoria_60"></a>Segmentos de Memoria
   </h2>
   <p class="has-line-data" data-line-start="62" data-line-end="63"><strong><em>Code Segment</em></strong>: De lectura y
@@ -5722,7 +5725,8 @@ void foo() {
     Todo lo que tiene que ver con manejo de archivos, headers, etc se resuelve acá. Si compilamos en C, solo le llegarán
     <code>.c</code> a la etapa de compilación. Reemplaza en el código los defines correspondientes, en función de las
     reglas definidas por los rótulos dados (<code>include, ifndef, define, ifdef, endif, ...</code>, todas instrucciones
-    del precompilador).</p>
+    del precompilador).
+  </p>
   <p class="has-line-data" data-line-start="101" data-line-end="102"><strong><em>Compilación</em></strong>: Verificación
     del código suministrado. Genera un código objeto. Los <code>.c</code> que reciben se transforman en <code>.o</code>
     &amp; <code>.lib</code>.</p>
@@ -5846,7 +5850,8 @@ void D(Class&amp;&amp; obj);
         <strong><em>peligroso</em></strong> pues si pasamos un objeto por copia que respeta RAII a un scope y este se
         destruye al salir del mismo (pues si un objeto sale de un scope en C++ se destruye automáticamente), podemos
         perder algún dato dinámico que podríamos querer usar en un futuro. Otro ejemplo peligroso es el de recibir una
-        matriz por copia; esto podría afectar fuertemente a la performance del programa.</p>
+        matriz por copia; esto podría afectar fuertemente a la performance del programa.
+      </p>
     </li>
     <li class="has-line-data" data-line-start="176" data-line-end="178">
       <p class="has-line-data" data-line-start="176" data-line-end="177"><code>B</code> recibe por puntero, es decir, al
@@ -5880,7 +5885,8 @@ void D(Class&amp;&amp; obj);
     alguno abstracto, podemos agregar <code>override</code> al final de la firma del mismo para que el compilador se
     fije si implementa alguna función de la vtable.</p>
   <p class="has-line-data" data-line-start="194" data-line-end="195">Para que un método sea de clase añadimos
-    <code>static</code> al principio de la firma del mismo.</p>
+    <code>static</code> al principio de la firma del mismo.
+  </p>
   <h3 class="code-line" data-line-start=196 data-line-end=197><a
       id="Herencia_Clases_Abstractas_e_Interfaces_196"></a>Herencia, Clases Abstractas e Interfaces</h3>
   <ul>
@@ -6065,7 +6071,8 @@ class Array&lt;bool&gt; { ... }
     Operadores</h2>
   <p class="has-line-data" data-line-start="350" data-line-end="351">Supongamos que tenemos las instancias
     <code>x1</code>, <code>x2</code> y queremos operar sobre ellas de la siguiente forma <code>x1 &lt;OP&gt; x2</code>.
-    Esto en C++ se puede representar así:</p>
+    Esto en C++ se puede representar así:
+  </p>
   <pre><code class="has-line-data" data-line-start="353" data-line-end="356">R resultado = x1 &lt;OP&gt; x2;
 R resultado = x1.operator&lt;OP&gt;(x2);
 </code></pre>
@@ -6102,7 +6109,8 @@ R resultado = x1.operator&lt;OP&gt;(x2);
 };
 </code></pre>
   <p class="has-line-data" data-line-start="396" data-line-end="397">Se conoce como <em>functor</em> a la llamada del
-    <code>operator()</code>.</p>
+    <code>operator()</code>.
+  </p>
   <h2 class="code-line" data-line-start=398 data-line-end=399><a id="STL_398"></a>STL</h2>
   <p class="has-line-data" data-line-start="400" data-line-end="401">Esta librería, haciendo uso de templates,
     implementa, entre otras cosas, un conjunto importantísimo y extenso de estructuras de datos. Es muy recomendable
@@ -6208,7 +6216,8 @@ namespace Orange {
 }
 </code></pre>
   <p class="has-line-data" data-line-start="494" data-line-end="495">Nos permite diferenciar entre
-    <code>Black::Cat</code> y <code>Orange::Cat</code>.</p>
+    <code>Black::Cat</code> y <code>Orange::Cat</code>.
+  </p>
   <p class="has-line-data" data-line-start="496" data-line-end="497">Si un namespace es anónimo, cualquier instancia de
     lo que se encuentre adentro del mismo podrá existir en el módulo en que se lo definió. Eso permite generar una
     funcionalidad similar a la de <em>static</em>.</p>
